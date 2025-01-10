@@ -1,4 +1,3 @@
-// app/theme.ts
 import { createTheme, Theme } from '@mui/material/styles';
 
 // Common Typography (applies to both light and dark themes)
@@ -23,6 +22,15 @@ const commonTypography = {
     fontWeight: 600,
     textTransform: 'none' as const,
   },
+  subtitle1: {
+    fontFamily: 'Poppins, sans-serif',
+    fontWeight: 500,
+    fontSize: '1.25rem',
+  },
+  caption: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: '0.875rem',
+  },
 };
 
 // Light Theme
@@ -41,6 +49,19 @@ export const lightTheme: Theme = createTheme({
     },
     text: {
       primary: '#2F2F2F',
+      secondary: '#757575',
+    },
+    success: {
+      main: '#4CAF50', // Green
+    },
+    error: {
+      main: '#F44336', // Red
+    },
+    warning: {
+      main: '#FF9800', // Orange
+    },
+    info: {
+      main: '#2196F3', // Blue
     },
   },
   typography: commonTypography,
@@ -62,6 +83,19 @@ export const darkTheme: Theme = createTheme({
     },
     text: {
       primary: '#FFFFFF',
+      secondary: '#B0BEC5',
+    },
+    success: {
+      main: '#4CAF50', // Green
+    },
+    error: {
+      main: '#F44336', // Red
+    },
+    warning: {
+      main: '#FF9800', // Orange
+    },
+    info: {
+      main: '#2196F3', // Blue
     },
   },
   typography: commonTypography,

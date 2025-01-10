@@ -13,7 +13,7 @@ interface StatCardProps {
 }
 
 const StatCard = ({ title, value, icon, color }: StatCardProps) => (
-  <Paper sx={{ p: 2 }}>
+  <Paper sx={{ p: 2, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <Box>
         <Typography variant="subtitle2" color="textSecondary">
@@ -57,7 +57,7 @@ const Statistics: React.FC = () => {
       gap={3}
     >
       {stats.map((stat, index) => (
-        <Box key={index}>
+        <Box key={index} sx={{ borderRadius: '12px' }}>
           <StatCard {...stat} />
         </Box>
       ))}

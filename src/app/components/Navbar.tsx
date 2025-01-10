@@ -29,6 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
       position="fixed" 
       sx={{ 
         zIndex: (theme) => theme.zIndex.drawer + 1,
+        backdropFilter: 'blur(10px)', // Glassmorphism effect
+        borderRadius: '12px', // Rounded corners
       }}
     >
       <Toolbar>
@@ -36,17 +38,18 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
           color="inherit"
           edge="start"
           onClick={onMenuClick}
+          sx={{ borderRadius: '12px' }} // Rounded corners
         >
           <MenuIcon />
         </IconButton>
         <Box sx={{ flexGrow: 1 }} />
-        <IconButton color="inherit">
+        <IconButton color="inherit" sx={{ borderRadius: '12px' }}>
           <SearchIcon />
         </IconButton>
-        <IconButton color="inherit" onClick={() => dispatch(toggleTheme())}>
+        <IconButton color="inherit" onClick={() => dispatch(toggleTheme())} sx={{ borderRadius: '12px' }}>
           {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
         </IconButton>
-        <IconButton color="inherit">
+        <IconButton color="inherit" sx={{ borderRadius: '12px' }}>
           <AccountCircleIcon />
         </IconButton>
       </Toolbar>

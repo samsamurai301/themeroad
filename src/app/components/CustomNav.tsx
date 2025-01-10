@@ -13,7 +13,7 @@ const CustomNav: React.FC = () => {
   const menuItems = ['Dashboard', 'Profile', 'Settings', 'Notifications'];
 
   return (
-    <AppBar position="sticky" color="secondary">
+    <AppBar position="sticky" color="secondary" sx={{ backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
       <Toolbar>
         {isMobile ? (
           <IconButton edge="start" color="inherit" onClick={() => toggleDrawer(true)}>
@@ -32,7 +32,7 @@ const CustomNav: React.FC = () => {
           Custom Navigation
         </Typography>
       </Toolbar>
-      <Drawer anchor="left" open={drawerOpen} onClose={() => toggleDrawer(false)}>
+      <Drawer anchor="left" open={drawerOpen} onClose={() => toggleDrawer(false)} sx={{ borderRadius: '12px' }}>
         <List sx={{ width: 250 }}>
           {menuItems.map((item) => (
             <ListItem component="button" key={item}>

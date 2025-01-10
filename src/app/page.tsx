@@ -76,28 +76,30 @@ const Home: React.FC = () => {
           p: 3,
           width: { sm: `calc(100% - ${240}px)` },
           ml: { sm: `${240}px` },
-          mt: '64px'
+          mt: '64px',
+          backdropFilter: 'blur(10px)', // Glassmorphism effect
+          borderRadius: '12px' // Rounded corners
         }}
       >
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3}>
-          <Box gridColumn="span 12">
+          <Box gridColumn="span 12" sx={{ borderRadius: '12px' }}>
             <Statistics />
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 8" }}>
-            <Paper sx={{ p: 3, height: '100%' }}>
+          <Box gridColumn={{ xs: "span 12", md: "span 8" }} sx={{ borderRadius: '12px' }}>
+            <Paper sx={{ p: 3, height: '100%', backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
               <Chart option={sampleChartOption} />
             </Paper>
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }} sx={{ borderRadius: '12px' }}>
             <ActivityFeed />
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }} sx={{ borderRadius: '12px' }}>
             <Profile />
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 8" }}>
+          <Box gridColumn={{ xs: "span 12", md: "span 8" }} sx={{ borderRadius: '12px' }}>
             <Tables />
           </Box>
-          <Box gridColumn="span 12">
+          <Box gridColumn="span 12" sx={{ borderRadius: '12px' }}>
             <Cards />
           </Box>
         </Box>

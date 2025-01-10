@@ -11,7 +11,7 @@ const ActivityFeed: React.FC = () => {
   ];
 
   return (
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ p: 2, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
       <Typography variant="h6" gutterBottom>
         Recent Activity
       </Typography>
@@ -20,7 +20,7 @@ const ActivityFeed: React.FC = () => {
           <React.Fragment key={index}>
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
-                <Avatar sx={{ bgcolor: activity.color }}>
+                <Avatar sx={{ bgcolor: activity.color, borderRadius: '12px' }}>
                   {activity.user.charAt(0)}
                 </Avatar>
               </ListItemAvatar>

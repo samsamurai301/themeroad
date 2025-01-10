@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose, variant }) => {
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton>
+            <ListItemButton sx={{ borderRadius: '12px' }}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -65,6 +65,8 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose, variant }) => {
           '& .MuiDrawer-paper': {
             width: 240,
             boxSizing: 'border-box',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '12px',
           },
         }}
       >

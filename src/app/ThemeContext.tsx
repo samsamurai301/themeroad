@@ -1,7 +1,10 @@
 // app/ThemeContext.tsx
 'use client';
 
-import React, { createContext, useContext, useState, useMemo, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useMemo, ReactNode } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setTheme } from './redux/themeSlice';
+import { RootState } from './redux/store';
 import { ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 
@@ -23,22 +26,15 @@ export const useThemeContext = (): ThemeContextType => {
 interface ThemeProviderProps {
   children: ReactNode;
 }
-
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const savedMode = (localStorage.getItem('themeMode') as 'light' | 'dark') || 'light';
-    setMode(savedMode);
-  }, []);
-
-  const toggleTheme = () => {
-    const newMode = mode === 'light' ? 'dark' : 'light';
-    setMode(newMode);
-    localStorage.setItem('themeMode', newMode);
-  };
+  const mode = useSelector((state: RootState) => state.theme.mode);
+  const dispatch = useDispatch();
 
   const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
+
+  const toggleTheme = () => {
+    dispatch(setTheme(mode === 'light' ? 'dark' : 'light'));
+  };
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>

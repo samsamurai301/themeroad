@@ -6,50 +6,74 @@ import {
   Toolbar,
   IconButton,
   Box,
+  Typography,
+  useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleTheme } from '../redux/themeSlice';
-import { RootState } from '../redux/store';
+import { useThemeMode } from '../hooks/useThemeMode';
 
 interface NavbarProps {
   onMenuClick: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
-  const dispatch = useDispatch();
-  const mode = useSelector((state: RootState) => state.theme.mode);
+  const theme = useTheme();
+  const { toggleTheme } = useThemeMode();
 
   return (
     <AppBar 
       position="fixed" 
+      className="glass"
       sx={{ 
-        zIndex: (theme) => theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.drawer + 1,
+        background: 'rgba(255, 255, 255, 0.02)',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: 'none',
+        color: theme.palette.text.primary,
+        transition: 'all 0.2s ease',
+        height: '56px', // Adjusted height
       }}
     >
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          edge="start"
-          onClick={onMenuClick}
-          sx={{ borderRadius: '12px' }} // Rounded corners
-        >
-          <MenuIcon />
-        </IconButton>
-        <Box sx={{ flexGrow: 1 }} />
-        <IconButton color="inherit" sx={{ borderRadius: '12px' }}>
-          <SearchIcon />
-        </IconButton>
-        <IconButton color="inherit" onClick={() => dispatch(toggleTheme())} sx={{ borderRadius: '12px' }}>
-          {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
-        </IconButton>
-        <IconButton color="inherit" sx={{ borderRadius: '12px' }}>
-          <AccountCircleIcon />
-        </IconButton>
+      <Toolbar variant="dense" sx={{ minHeight: '56px' }}> {/* Adjusted height */}
+        <Box sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          width: '100%',
+          gap: 1
+        }}>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              flexGrow: 1,
+              fontWeight: 500,
+              letterSpacing: '0.5px',
+            }}
+          >
+            Dashboard
+          </Typography>
+          <IconButton
+            color="inherit"
+            onClick={onMenuClick}
+            size="small"
+            className="button-hover"
+          >
+            <MenuIcon />
+          </IconButton>
+          <IconButton color="inherit" size="small" className="button-hover">
+            <SearchIcon />
+          </IconButton>
+          <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit" size="small" className="button-hover">
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+          <IconButton color="inherit" size="small" className="button-hover">
+            <AccountCircleIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );

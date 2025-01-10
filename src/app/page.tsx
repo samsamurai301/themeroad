@@ -10,7 +10,12 @@ import Cards from './components/Cards';
 import Profile from './components/Profile';
 import Statistics from './components/Statistics';
 import ActivityFeed from './components/ActivityFeed';
+import Notifications from './components/Notifications';
+import Tasks from './components/Tasks';
+import Analytics from './components/Analytics';
 import { useMediaQuery, useTheme } from '@mui/material';
+import './styles/animations.css';
+import './styles/advanced-animations.css';
 
 const Home: React.FC = () => {
   const theme = useTheme();
@@ -62,42 +67,81 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box 
+      className="gradient-bg"
+      sx={{ 
+        display: 'flex',
+        minHeight: '100vh',
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
       <Navbar onMenuClick={handleSidebarToggle} />
       <Sidebar 
         open={sidebarOpen} 
         onClose={() => setSidebarOpen(false)}
-        variant={isMobile ? "temporary" : "permanent"}
+        variant={isMobile ? "temporary" : "persistent"}
       />
       <Box
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${240}px)` },
-          ml: { sm: `${240}px` },
-          mt: '64px'
+          p: { xs: 2, sm: 3 },
+          width: { sm: `calc(100% - ${sidebarOpen ? 240 : 0}px)` },
+          mt: '48px', // Reduced from 64px for dense toolbar
+          transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
         }}
       >
-        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3}>
-          <Box gridColumn="span 12" sx={{ borderRadius: '12px' }}>
+        <Box 
+          display="grid" 
+          gridTemplateColumns="repeat(12, 1fr)" 
+          gap={{ xs: 2, sm: 3 }}
+          sx={{ maxWidth: '1600px', margin: '0 auto' }}
+        >
+          {/* Statistics and Chart Section */}
+          <Box gridColumn="span 12">
             <Statistics />
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 8" }} sx={{ borderRadius: '12px' }}>
-            <Paper sx={{ p: 3, height: '100%' }}>
+          <Box gridColumn="span 12">
+            <Paper 
+              sx={{ 
+                p: 3, 
+                height: '100%',
+                minHeight: '400px',
+                borderRadius: '12px',
+                boxShadow: theme.shadows[3],
+              }}
+            >
               <Chart option={sampleChartOption} />
             </Paper>
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }} sx={{ borderRadius: '12px' }}>
-            <ActivityFeed />
-          </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }} sx={{ borderRadius: '12px' }}>
+
+          {/* User Related Section */}
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
             <Profile />
           </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 8" }} sx={{ borderRadius: '12px' }}>
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
+            <Tasks />
+          </Box>
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
+            <ActivityFeed />
+          </Box>
+
+          {/* Data and Analytics Section */}
+          <Box gridColumn={{ xs: "span 12", lg: "span 8" }}>
             <Tables />
           </Box>
-          <Box gridColumn="span 12" sx={{ borderRadius: '12px' }}>
+          <Box gridColumn={{ xs: "span 12", lg: "span 4" }}>
+            <Notifications />
+          </Box>
+          <Box gridColumn="span 12">
+            <Analytics />
+          </Box>
+          
+          {/* Additional Content */}
+          <Box gridColumn="span 12">
             <Cards />
           </Box>
         </Box>

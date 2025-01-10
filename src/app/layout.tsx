@@ -1,22 +1,22 @@
-"use client";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider } from "./ThemeContext";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
+'use client';
+
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { ThemeProvider } from './ThemeContext';
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body>
-        <ThemeProvider>
-          <Provider store={store}>
-            <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-          </Provider>
-        </ThemeProvider>
+    <html lang="en" style={{ margin: 0, padding: 0 }}>
+      <body style={{ margin: 0, padding: 0 }}>
+        <Provider store={store}>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

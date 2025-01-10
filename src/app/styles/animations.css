@@ -1,0 +1,38 @@
+@keyframes subtle-gradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes subtle-float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-3px); }
+}
+
+@keyframes row-hover {
+  0% { background-color: transparent; }
+  100% { background-color: rgba(0, 0, 0, 0.04); }
+}
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #2196F3, #1976D2, #1565C0, #0D47A1);
+  background-size: 200% 200%;
+  animation: subtle-gradient 15s linear infinite;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-row-hover:hover {
+  animation: row-hover 0.3s forwards;
+}

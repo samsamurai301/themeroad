@@ -33,19 +33,99 @@ const commonTypography = {
   },
 };
 
+const commonComponents = {
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        background: 'rgba(255, 255, 255, 0.02)',
+        backdropFilter: 'blur(8px)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: 'none',
+        transition: 'all 0.2s ease',
+        '&:hover': {
+          transform: 'translateY(-2px)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+        },
+      },
+    },
+  },
+  MuiAppBar: {
+    styleOverrides: {
+      root: {
+        backgroundImage: 'none',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+      },
+    },
+  },
+  MuiButton: {
+    defaultProps: {
+      disableRipple: false,
+    },
+    styleOverrides: {
+      root: {
+        textTransform: 'none',
+        fontWeight: 500,
+        borderRadius: '6px',
+        transition: 'all 0.2s ease',
+        variants: [],
+      },
+    },
+  },
+  MuiTable: {
+    styleOverrides: {
+      root: {
+        borderCollapse: 'separate',
+        borderSpacing: '0 10px',
+        variants: [],
+      },
+    },
+  },
+  MuiTableCell: {
+    styleOverrides: {
+      root: {
+        borderBottom: 'none',
+        padding: '16px',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        '&:first-of-type': {
+          borderTopLeftRadius: '10px',
+          borderBottomLeftRadius: '10px',
+        },
+        '&:last-of-type': {
+          borderTopRightRadius: '10px',
+          borderBottomRightRadius: '10px',
+        },
+      },
+      head: {
+        fontWeight: 700,
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+      },
+    },
+  },
+  MuiTableRow: {
+    styleOverrides: {
+      root: {
+        '&:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.04)',
+        },
+      },
+    },
+  },
+};
+
 // Light Theme
 export const lightTheme: Theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1A73E8', // Electric Blue
+      main: '#1976D2',
     },
     secondary: {
       main: '#FF7043', // Sunset Orange
     },
     background: {
-      default: '#FAFAFA', // Off-White
-      paper: 'rgba(255, 255, 255, 0.8)', // Glassmorphism effect
+      default: '#F8FAFC',
+      paper: '#FFFFFF', // White
     },
     text: {
       primary: '#2F2F2F',
@@ -87,23 +167,13 @@ export const lightTheme: Theme = createTheme({
     borderRadius: 12, // Rounded components
   },
   components: {
+    ...commonComponents,
     MuiPaper: {
       styleOverrides: {
         root: {
-          backdropFilter: 'blur(10px)', // Glassmorphism effect
-          backgroundColor: 'rgba(255,255,255,0.1)',
-          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
-          border: '1px solid rgba(255,255,255,0.18)',
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(255,255,255,0.05)',
-          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
-          border: '1px solid rgba(255,255,255,0.18)',
+          ...commonComponents.MuiPaper.styleOverrides.root,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0 8px 32px rgba(31, 38, 135, 0.1)',
         },
       },
     },
@@ -115,14 +185,14 @@ export const darkTheme: Theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#BB86FC', // Light Purple
+      main: '#90CAF9',
     },
     secondary: {
       main: '#03DAC6', // Teal
     },
     background: {
-      default: '#121212', // Dark Gray
-      paper: 'rgba(30, 30, 30, 0.8)', // Glassmorphism effect
+      default: '#0A1929',
+      paper: '#132F4C',
     },
     text: {
       primary: '#FFFFFF',
@@ -164,23 +234,13 @@ export const darkTheme: Theme = createTheme({
     borderRadius: 12, // Rounded components
   },
   components: {
+    ...commonComponents,
     MuiPaper: {
       styleOverrides: {
         root: {
-          backdropFilter: 'blur(10px)', // Glassmorphism effect
-          backgroundColor: 'rgba(30,30,30,0.15)',
-          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
-          border: '1px solid rgba(255,255,255,0.18)',
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(30,30,30,0.1)',
-          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
-          border: '1px solid rgba(255,255,255,0.18)',
+          ...commonComponents.MuiPaper.styleOverrides.root,
+          backgroundColor: 'rgba(30, 30, 30, 0.8)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
         },
       },
     },

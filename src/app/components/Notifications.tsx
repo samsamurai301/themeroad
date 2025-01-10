@@ -24,8 +24,17 @@ const Notifications: React.FC = () => {
       <Button variant="outlined" onClick={handleClick}>
         Show Notification
       </Button>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleAlertClose} severity="success" sx={{ width: '100%' }}>
+      <Snackbar 
+        open={open} 
+        autoHideDuration={6000} 
+        onClose={handleClose}
+        sx={{ backdropFilter: 'blur(10px)', borderRadius: '12px' }}
+      >
+        <Alert 
+          onClose={handleAlertClose} 
+          severity="success" 
+          sx={{ width: '100%', borderRadius: '12px' }}
+        >
           This is a success message!
         </Alert>
       </Snackbar>

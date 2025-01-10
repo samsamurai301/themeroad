@@ -4,12 +4,13 @@ import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
 const Profile: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
         <CardMedia
           component="img"
           height="140"
           image="/static/images/profile.jpg"
           alt="Profile Picture"
+          sx={{ borderRadius: '12px' }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

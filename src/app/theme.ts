@@ -45,7 +45,7 @@ export const lightTheme: Theme = createTheme({
     },
     background: {
       default: '#FAFAFA', // Off-White
-      paper: '#FFFFFF',
+      paper: 'rgba(255, 255, 255, 0.8)', // Glassmorphism effect
     },
     text: {
       primary: '#2F2F2F',
@@ -64,7 +64,38 @@ export const lightTheme: Theme = createTheme({
       main: '#2196F3', // Blue
     },
   },
-  typography: commonTypography,
+  typography: {
+    ...commonTypography,
+    h1: {
+      ...commonTypography.h1,
+      fontSize: '3.5rem',
+    },
+    h2: {
+      ...commonTypography.h2,
+      fontSize: '3rem',
+    },
+    body1: {
+      ...commonTypography.body1,
+      fontSize: '1.1rem',
+    },
+    button: {
+      ...commonTypography.button,
+      borderRadius: '12px', // Rounded buttons
+    },
+  },
+  shape: {
+    borderRadius: 12, // Rounded components
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backdropFilter: 'blur(10px)', // Glassmorphism effect
+          borderRadius: '12px', // Rounded corners
+        },
+      },
+    },
+  },
 });
 
 // Dark Theme
@@ -79,7 +110,7 @@ export const darkTheme: Theme = createTheme({
     },
     background: {
       default: '#121212', // Dark Gray
-      paper: '#1E1E1E',
+      paper: 'rgba(30, 30, 30, 0.8)', // Glassmorphism effect
     },
     text: {
       primary: '#FFFFFF',
@@ -98,5 +129,36 @@ export const darkTheme: Theme = createTheme({
       main: '#2196F3', // Blue
     },
   },
-  typography: commonTypography,
+  typography: {
+    ...commonTypography,
+    h1: {
+      ...commonTypography.h1,
+      fontSize: '3.5rem',
+    },
+    h2: {
+      ...commonTypography.h2,
+      fontSize: '3rem',
+    },
+    body1: {
+      ...commonTypography.body1,
+      fontSize: '1.1rem',
+    },
+    button: {
+      ...commonTypography.button,
+      borderRadius: '12px', // Rounded buttons
+    },
+  },
+  shape: {
+    borderRadius: 12, // Rounded components
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backdropFilter: 'blur(10px)', // Glassmorphism effect
+          borderRadius: '12px', // Rounded corners
+        },
+      },
+    },
+  },
 });

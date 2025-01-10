@@ -4,12 +4,13 @@ import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
 const Cards: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, p: 3 }}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
           alt="Contemplative Reptile"
+          sx={{ borderRadius: '12px' }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -20,12 +21,13 @@ const Cards: React.FC = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/paella.jpg"
           alt="Paella dish"
+          sx={{ borderRadius: '12px' }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -36,12 +38,13 @@ const Cards: React.FC = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/live-from-space.jpg"
           alt="Live from space"
+          sx={{ borderRadius: '12px' }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

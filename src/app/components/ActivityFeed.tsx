@@ -11,7 +11,7 @@ const ActivityFeed: React.FC = () => {
   ];
 
   return (
-    <Paper sx={{ p: 2, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
+    <Paper sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
         Recent Activity
       </Typography>

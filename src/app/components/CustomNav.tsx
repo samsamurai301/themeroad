@@ -13,7 +13,7 @@ const CustomNav: React.FC = () => {
   const menuItems = ['Dashboard', 'Profile', 'Settings', 'Notifications'];
 
   return (
-    <AppBar position="sticky" color="secondary" sx={{ backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
+    <AppBar position="sticky" color="secondary" sx={{}}>
       <Toolbar>
         {isMobile ? (
           <IconButton edge="start" color="inherit" onClick={() => toggleDrawer(true)}>

@@ -76,9 +76,7 @@ const Home: React.FC = () => {
           p: 3,
           width: { sm: `calc(100% - ${240}px)` },
           ml: { sm: `${240}px` },
-          mt: '64px',
-          backdropFilter: 'blur(10px)', // Glassmorphism effect
-          borderRadius: '12px' // Rounded corners
+          mt: '64px'
         }}
       >
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3}>
@@ -86,7 +84,7 @@ const Home: React.FC = () => {
             <Statistics />
           </Box>
           <Box gridColumn={{ xs: "span 12", md: "span 8" }} sx={{ borderRadius: '12px' }}>
-            <Paper sx={{ p: 3, height: '100%', backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
+            <Paper sx={{ p: 3, height: '100%' }}>
               <Chart option={sampleChartOption} />
             </Paper>
           </Box>

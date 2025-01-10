@@ -29,8 +29,6 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
       position="fixed" 
       sx={{ 
         zIndex: (theme) => theme.zIndex.drawer + 1,
-        backdropFilter: 'blur(10px)', // Glassmorphism effect
-        borderRadius: '12px', // Rounded corners
       }}
     >
       <Toolbar>

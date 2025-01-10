@@ -11,7 +11,7 @@ interface ChartProps {
 
 const Chart: React.FC<ChartProps> = ({ option, style }) => {
   return (
-    <Paper sx={{ p: 3, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
+    <Paper sx={{ p: 3 }}>
       <ReactECharts
         option={option}
         style={style || { height: 400, width: '100%' }}

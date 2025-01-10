@@ -91,7 +91,19 @@ export const lightTheme: Theme = createTheme({
       styleOverrides: {
         root: {
           backdropFilter: 'blur(10px)', // Glassmorphism effect
-          borderRadius: '12px', // Rounded corners
+          backgroundColor: 'rgba(255,255,255,0.1)',
+          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
+          border: '1px solid rgba(255,255,255,0.18)',
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(255,255,255,0.05)',
+          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
+          border: '1px solid rgba(255,255,255,0.18)',
         },
       },
     },
@@ -156,7 +168,19 @@ export const darkTheme: Theme = createTheme({
       styleOverrides: {
         root: {
           backdropFilter: 'blur(10px)', // Glassmorphism effect
-          borderRadius: '12px', // Rounded corners
+          backgroundColor: 'rgba(30,30,30,0.15)',
+          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
+          border: '1px solid rgba(255,255,255,0.18)',
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(30,30,30,0.1)',
+          boxShadow: '0 8px 32px rgba(31,38,135,0.37)',
+          border: '1px solid rgba(255,255,255,0.18)',
         },
       },
     },

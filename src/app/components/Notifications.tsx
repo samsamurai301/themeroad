@@ -8,14 +8,10 @@ const Notifications: React.FC = () => {
     setOpen(true);
   };
 
-  const handleClose = (event: Event | React.SyntheticEvent<Element, Event>, reason: string) => {
+  const handleClose = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
-    setOpen(false);
-  };
-
-  const handleAlertClose = () => {
     setOpen(false);
   };
 
@@ -30,7 +26,7 @@ const Notifications: React.FC = () => {
         onClose={handleClose}
       >
         <Alert 
-          onClose={handleAlertClose} 
+          onClose={handleClose} 
           severity="success" 
           sx={{ width: '100%' }}
         >

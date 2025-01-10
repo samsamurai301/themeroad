@@ -1,57 +1,28 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
+import { cardData } from '../data/cardData';
 
 const Cards: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, p: 3 }}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.
-          </Typography>
-        </CardContent>
-      </Card>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/paella.jpg"
-          alt="Paella dish"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Paella
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Paella is a Spanish rice dish originally from Valencia. Paella is one of the best-known dishes in Spanish cuisine.
-          </Typography>
-        </CardContent>
-      </Card>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/live-from-space.jpg"
-          alt="Live from space"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Live From Space
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Catch up on your favorite NASA TV shows and watch the latest NASA TV live events.
-          </Typography>
-        </CardContent>
-      </Card>
+      {cardData.map((card, index) => (
+        <Card key={index} sx={{ maxWidth: 345 }}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={card.image}
+            alt={card.alt}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {card.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {card.description}
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
     </Box>
   );
 };

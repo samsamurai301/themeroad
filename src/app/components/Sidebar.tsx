@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import {
   Box,
@@ -30,13 +30,13 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose, variant }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const menuItems = [
+  const menuItems = useMemo(() => [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
     { text: 'Analytics', icon: <BarChartIcon />, path: '/analytics' },
     { text: 'Tables', icon: <TableViewIcon />, path: '/tables' },
     { text: 'Profile', icon: <PersonIcon />, path: '/profile' },
     { text: 'Settings', icon: <SettingsIcon />, path: '/settings' },
-  ];
+  ], []);
 
   const handleNavigation = (path: string) => {
     router.push(path);

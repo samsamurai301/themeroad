@@ -1,10 +1,7 @@
-// app/ThemeContext.tsx
 'use client';
 
-import React, { createContext, useContext, useMemo, ReactNode } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setTheme } from './redux/themeSlice';
-import { RootState } from './redux/store';
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useThemeMode } from './hooks/useThemeMode';
 import { ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 
@@ -27,14 +24,9 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const mode = useSelector((state: RootState) => state.theme.mode);
-  const dispatch = useDispatch();
+  const { mode, toggleTheme } = useThemeMode();
 
-  const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
-
-  const toggleTheme = () => {
-    dispatch(setTheme(mode === 'light' ? 'dark' : 'light'));
-  };
+  const theme = mode === 'light' ? lightTheme : darkTheme;
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>

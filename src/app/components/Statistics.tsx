@@ -1,45 +1,9 @@
 import React from 'react';
-import { Box, Paper, Typography } from '@mui/material';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import PeopleIcon from '@mui/icons-material/People';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-interface StatCardProps {
-  title: string;
-  value: string;
-  icon: React.ReactNode;
-  color: 'primary' | 'success' | 'warning' | 'error';
-}
-
-const StatCard = ({ title, value, icon, color }: StatCardProps) => (
-  <Paper sx={{ p: 2, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <Box>
-        <Typography variant="subtitle2" color="textSecondary">
-          {title}
-        </Typography>
-        <Typography variant="h4" sx={{ mt: 1, mb: 1 }}>
-          {value}
-        </Typography>
-        <Typography variant="body2" color="success.main" sx={{ display: 'flex', alignItems: 'center' }}>
-          <TrendingUpIcon fontSize="small" sx={{ mr: 0.5 }} />
-          +15% increase
-        </Typography>
-      </Box>
-      <Box sx={{ 
-        backgroundColor: `${color}.lighter`,
-        p: 1.5,
-        borderRadius: 2
-      }}>
-        {icon}
-      </Box>
-    </Box>
-  </Paper>
-);
+import { Box } from '@mui/material';
+import StatCard from './StatCard';
 
 const Statistics: React.FC = () => {
-  const stats: StatCardProps[] = [
+  const stats = [
     { title: 'Total Sales', value: '$23,850', icon: <AttachMoneyIcon sx={{ color: 'primary.main' }} />, color: 'primary' },
     { title: 'New Users', value: '2,356', icon: <PeopleIcon sx={{ color: 'success.main' }} />, color: 'success' },
     { title: 'Orders', value: '1,245', icon: <ShoppingCartIcon sx={{ color: 'warning.main' }} />, color: 'warning' },

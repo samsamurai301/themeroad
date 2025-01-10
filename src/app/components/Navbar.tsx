@@ -4,17 +4,13 @@ import React from 'react';
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Box,
   Typography,
   useTheme,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useThemeMode } from '../hooks/useThemeMode';
+import NavbarItem from './NavbarItem';
+import useNavbarStyles from './navbarStyles';
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -23,6 +19,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const theme = useTheme();
   const { toggleTheme } = useThemeMode();
+  const classes = useNavbarStyles();
 
   return (
     <AppBar 
@@ -56,23 +53,24 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
           >
             Dashboard
           </Typography>
-          <IconButton
-            color="inherit"
+          <NavbarItem
+            icon="menu"
             onClick={onMenuClick}
-            size="small"
-            className="button-hover"
-          >
-            <MenuIcon />
-          </IconButton>
-          <IconButton color="inherit" size="small" className="button-hover">
-            <SearchIcon />
-          </IconButton>
-          <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit" size="small" className="button-hover">
-            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-          <IconButton color="inherit" size="small" className="button-hover">
-            <AccountCircleIcon />
-          </IconButton>
+            className={classes.buttonHover}
+          />
+          <NavbarItem
+            icon="search"
+            className={classes.buttonHover}
+          />
+          <NavbarItem
+            icon={theme.palette.mode === 'dark' ? 'brightness7' : 'brightness4'}
+            onClick={toggleTheme}
+            className={classes.buttonHover}
+          />
+          <NavbarItem
+            icon="accountCircle"
+            className={classes.buttonHover}
+          />
         </Box>
       </Toolbar>
     </AppBar>

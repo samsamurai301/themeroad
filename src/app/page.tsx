@@ -22,46 +22,6 @@ const Home: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile);
 
-  const sampleChartOption = {
-    title: {
-      text: 'Monthly Analytics',
-      textStyle: {
-        fontSize: 16,
-      }
-    },
-    tooltip: {
-      trigger: 'axis',
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-    },
-    xAxis: {
-      type: 'category',
-      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-      boundaryGap: false,
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        name: 'Sales',
-        type: 'line',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        smooth: true,
-        areaStyle: {
-          opacity: 0.3
-        },
-        lineStyle: {
-          width: 3
-        }
-      }
-    ]
-  };
-
   const handleSidebarToggle = () => {
     setSidebarOpen(!sidebarOpen);
   };

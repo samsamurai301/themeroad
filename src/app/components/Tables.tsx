@@ -15,7 +15,15 @@ const rows = [
 
 const Tables: React.FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ p: 3, backdropFilter: 'blur(10px)', borderRadius: '12px' }}>
+    <TableContainer 
+      component={Paper} 
+      sx={{ 
+        p: 3, 
+        backdropFilter: 'blur(10px)',
+        borderRadius: '16px',
+        backgroundColor: 'background.paper'
+      }}
+    >
       <Typography variant="h4" gutterBottom>
         Nutrition Table
       </Typography>

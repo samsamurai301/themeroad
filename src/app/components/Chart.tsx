@@ -11,7 +11,14 @@ interface ChartProps {
 
 const Chart: React.FC<ChartProps> = ({ option, style }) => {
   return (
-    <Paper sx={{ p: 3 }}>
+    <Paper 
+      sx={{ 
+        p: 3,
+        borderRadius: '16px',
+        backgroundColor: 'background.paper',
+        // boxShadow: (theme) => theme.customShadows.card
+      }}
+    >
       <ReactECharts
         option={option}
         style={style || { height: 400, width: '100%' }}

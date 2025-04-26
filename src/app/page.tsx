@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Box, Paper } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Chart from './components/Chart';
@@ -102,47 +102,41 @@ const Home: React.FC = () => {
         >
           {/* Statistics and Chart Section */}
           <Box gridColumn="span 12">
-            <Statistics />
-          </Box>
-          <Box gridColumn="span 12">
-            <Paper 
-              sx={{ 
-                p: 3, 
-                height: '100%',
-                minHeight: '400px',
-                borderRadius: '12px',
-                boxShadow: theme.shadows[3],
-              }}
-            >
-              <Chart option={sampleChartOption} />
-            </Paper>
+            <Box sx={{ p: 2, bgcolor: 'background.default' }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <Statistics />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Chart option={sampleChartOption} />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Cards />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Profile />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Tasks />
+                </Grid>
+                <Grid item xs={12}>
+                  <Analytics />
+                </Grid>
+              </Grid>
+            </Box>
           </Box>
 
           {/* User Related Section */}
           <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
-            <Profile />
-          </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
-            <Tasks />
-          </Box>
-          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
             <ActivityFeed />
+          </Box>
+          <Box gridColumn={{ xs: "span 12", md: "span 4" }}>
+            <Notifications />
           </Box>
 
           {/* Data and Analytics Section */}
           <Box gridColumn={{ xs: "span 12", lg: "span 8" }}>
             <Tables />
-          </Box>
-          <Box gridColumn={{ xs: "span 12", lg: "span 4" }}>
-            <Notifications />
-          </Box>
-          <Box gridColumn="span 12">
-            <Analytics />
-          </Box>
-          
-          {/* Additional Content */}
-          <Box gridColumn="span 12">
-            <Cards />
           </Box>
         </Box>
       </Box>

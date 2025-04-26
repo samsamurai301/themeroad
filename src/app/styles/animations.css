@@ -13,6 +13,16 @@
   100% { background-color: rgba(0, 0, 0, 0.04); }
 }
 
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .gradient-bg {
   background: linear-gradient(-45deg, #2196F3, #1976D2, #1565C0, #0D47A1);
   background-size: 200% 200%;
@@ -35,4 +45,24 @@
 
 .table-row-hover:hover {
   animation: row-hover 0.3s forwards;
+}
+
+.button-hover {
+  transition: transform 0.3s ease;
+}
+
+.button-hover:hover {
+  transform: scale(1.05); 
+}
+
+.fade-in {
+  animation: fade-in 0.5s forwards;
+}
+
+.fade-out {
+  animation: fade-out 0.5s forwards;
+}
+
+.fade-in-out {
+  animation: fade-in 0.5s forwards, fade-out 0.5s 2.5s forwards;
 }

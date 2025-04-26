@@ -1,8 +1,10 @@
 import React from 'react';
 import { Paper, Typography } from '@mui/material';
 import Chart from './Chart';
+import { customEchartsTheme } from '../theme';
 
 const analyticsChartOption = {
+  ...customEchartsTheme,
   title: {
     text: 'Extra Analytics - Users',
     textStyle: { fontSize: 16 },
@@ -48,7 +50,14 @@ const segmentsChartOption = {
 
 const Analytics: React.FC = () => {
   return (
-    <Paper sx={{ p: 3, borderRadius: '12px' }}>
+    <Paper 
+      sx={{ 
+        p: 3, 
+        borderRadius: '16px',
+        backgroundColor: 'background.paper',
+        // boxShadow: (theme) => theme.customShadows.card
+      }}
+    >
       <Typography variant="h6">Extra Analytics</Typography>
       <Typography variant="body2">Additional dashboard insights...</Typography>
       <Chart option={analyticsChartOption} />

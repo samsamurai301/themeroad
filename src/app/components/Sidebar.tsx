@@ -58,11 +58,9 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose, variant }) => {
             width: 240,
             boxSizing: 'border-box',
             border: 'none',
-            backgroundColor: theme.palette.mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.9)'
-              : 'rgba(0, 0, 0, 0.9)',
+            backgroundColor: 'background.paper',
             backdropFilter: 'blur(10px)',
-            boxShadow: theme.shadows[4],
+            // boxShadow: (theme) => theme.customShadows.z16,
             transition: theme.transitions.create(['transform', 'width', 'background-color'], {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.enteringScreen,
@@ -98,15 +96,13 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose, variant }) => {
                   sx={{
                     borderRadius: '12px',
                     '&:hover': {
-                      backgroundColor: theme.palette.mode === 'light' 
-                        ? 'rgba(0, 0, 0, 0.04)'
-                        : 'rgba(255, 255, 255, 0.08)',
+                      backgroundColor: 'action.hover',
                     },
                     '&.Mui-selected': {
-                      backgroundColor: theme.palette.primary.main,
-                      color: 'white',
+                      backgroundColor: 'primary.main',
+                      color: 'primary.contrastText',
                       '&:hover': {
-                        backgroundColor: theme.palette.primary.dark,
+                        backgroundColor: 'primary.dark',
                       },
                     },
                   }}
